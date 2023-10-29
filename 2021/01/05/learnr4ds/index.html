@@ -17,33 +17,173 @@
 
 
     <title>learn r for ggplot theory | Zy</title>
-    <link rel="icon" type="image/png" href="/zy1998ld/zy1998ld.github.io.git/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 
 
 
-<body>
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/zy1998ld/zy1998ld.github.io.git/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/zy1998ld/zy1998ld.github.io.git/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/imgs/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Zy</span>
                 </a>
@@ -55,7 +195,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -66,7 +206,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/tags" class="waves-effect waves-light">
+    <a href="/tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -77,7 +217,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/categories" class="waves-effect waves-light">
+    <a href="/categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -88,7 +228,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/archives" class="waves-effect waves-light">
+    <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -99,7 +239,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/about" class="waves-effect waves-light">
+    <a href="/about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -110,7 +250,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/contact" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
@@ -121,7 +261,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zy1998ld/zy1998ld.github.io.git/friends" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
@@ -142,7 +282,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/zy1998ld/zy1998ld.github.io.git/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/imgs/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Zy</div>
         <div class="logo-desc">
@@ -158,7 +298,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/" class="waves-effect waves-light">
+		<a href="/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -169,7 +309,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/tags" class="waves-effect waves-light">
+		<a href="/tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -180,7 +320,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/categories" class="waves-effect waves-light">
+		<a href="/categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -191,7 +331,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/archives" class="waves-effect waves-light">
+		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -202,7 +342,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/about" class="waves-effect waves-light">
+		<a href="/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -213,7 +353,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/contact" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
@@ -224,7 +364,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zy1998ld/zy1998ld.github.io.git/friends" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
@@ -312,7 +452,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/zy1998ld/zy1998ld.github.io.git/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -330,7 +470,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/zy1998ld/zy1998ld.github.io.git/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -433,7 +573,7 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/zy1998ld/zy1998ld.github.io.git/tags/code/">
+                            <a href="/tags/code/">
                                 <span class="chip bg-color">code</span>
                             </a>
                         
@@ -456,6 +596,11 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    991
+                </div>
+                
 
                 
 
@@ -466,25 +611,21 @@
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/zy1998ld/zy1998ld.github.io.git/libs/prism/prism.css">
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="R4ds-ggplot-mag"><a href="#R4ds-ggplot-mag" class="headerlink" title="R4ds ggplot [:mag:]"></a>R4ds ggplot [<span class="github-emoji"><span>🔍</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>]</h1><p>[toc]</p>
-<details>
-    <summary>目录</summary>
-- [ggplot](#ggplot)
-- [数据转换](#数据转换)
-- [数据探索分析](#数据探索分析)
-
-</details>
-
-
-
-
+                <h1 id="R4ds-ggplot-mag"><a href="#R4ds-ggplot-mag" class="headerlink" title="R4ds ggplot [:mag:]"></a>R4ds ggplot [<span class="github-emoji"><span>🔍</span><img src="/imgs/loading.gif" data-original="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>]</h1><ul>
+<li><p><a href="#ggplot">ggplot</a></p>
+</li>
+<li><p><a href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2">数据转换</a></p>
+</li>
+<li><p><a href="#%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2%E5%88%86%E6%9E%90">数据探索分析</a></p>
+</li>
+</ul>
 <h2 id="ggplot"><a href="#ggplot" class="headerlink" title="ggplot"></a>ggplot</h2><p>ggplot<strong>分层</strong>绘图的七个参数</p>
 <pre class="line-numbers language-r" data-language="r"><code class="language-r">ggplot<span class="token punctuation">(</span>data <span class="token operator">=</span> <span class="token operator">&lt;</span>data<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">+</span>
     geom_<span class="token operator">&lt;</span><span class="token keyword">function</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>
@@ -499,7 +640,7 @@
 </blockquote>
 <h2 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h2><p>!!!note 由于对于浮点数的存储并不能达到无限精度，所以 1/49*49 == 1 这种判断结果为 F，此时需要用到 near(x,y)函数</p>
 <ol>
-<li>filter 子集化，注意比较和逻辑运算符，注意<code>%in%</code>的使用。其中<code>xor()</code>对应的是<code>(x &amp; !y) &amp; (y &amp; !x)</code> <img src="/zy1998ld/zy1998ld.github.io.git/imgs/Boolean.png" alt="布尔运算"><ul>
+<li>filter 子集化，注意比较和逻辑运算符，注意<code>%in%</code>的使用。其中<code>xor()</code>对应的是<code>(x &amp; !y) &amp; (y &amp; !x)</code> <img src="/imgs/loading.gif" data-original="/imgs/Boolean.png" alt="布尔运算"><ul>
 <li>filter 函数计算时并不会纳入 NA，所以 filter(.data,is.NA(cond)|cond)</li>
 </ul>
 </li>
@@ -554,7 +695,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/zy1998ld/zy1998ld.github.io.git/about" rel="external nofollow noreferrer">Zy</a>
+                    <a href="/about" rel="external nofollow noreferrer">Zy</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -564,7 +705,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/zy1998ld/zy1998ld.github.io.git/zy1998ld/zy1998ld.github.io.git/2021/01/05/learnr4ds/">https://github.com/zy1998ld/zy1998ld.github.io.git/zy1998ld/zy1998ld.github.io.git/2021/01/05/learnr4ds/</a>
+                    <a href="http://zy1998ld.github.io/2021/01/05/learnr4ds/">http://zy1998ld.github.io/2021/01/05/learnr4ds/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,7 +718,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/zy1998ld/zy1998ld.github.io.git/about" target="_blank">Zy</a>
+                    <a href="/about" target="_blank">Zy</a>
                     !
                 </span>
             </div>
@@ -602,7 +743,7 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/zy1998ld/zy1998ld.github.io.git/tags/code/">
+                                <a href="/tags/code/">
                                     <span class="chip bg-color">code</span>
                                 </a>
                             
@@ -610,12 +751,12 @@
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/zy1998ld/zy1998ld.github.io.git/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/share/js/social-share.min.js"></script>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -624,132 +765,6 @@
 
                 </div>
             </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/zy1998ld/zy1998ld.github.io.git/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/zy1998ld/zy1998ld.github.io.git/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -778,11 +793,11 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/zy1998ld/zy1998ld.github.io.git/2021/01/05/learnr4ds/">
+                <a href="/2021/01/05/learnr4ds/">
                     <div class="card-image">
                         
                         
-                        <img src="/zy1998ld/zy1998ld.github.io.git/medias/featureimages/5.jpg" class="responsive-img" alt="learn r for ggplot theory">
+                        <img src="/imgs/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="learn r for ggplot theory">
                         
                         <span class="card-title">learn r for ggplot theory</span>
                     </div>
@@ -809,7 +824,7 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zy1998ld/zy1998ld.github.io.git/tags/code/">
+                    <a href="/tags/code/">
                         <span class="chip bg-color">code</span>
                     </a>
                     
@@ -824,11 +839,11 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/zy1998ld/zy1998ld.github.io.git/2021/01/05/learnr4ds/">
+                <a href="/2021/01/05/learnr4ds/">
                     <div class="card-image">
                         
                         
-                        <img src="/zy1998ld/zy1998ld.github.io.git/medias/featureimages/5.jpg" class="responsive-img" alt="learn r for ggplot theory">
+                        <img src="/imgs/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="learn r for ggplot theory">
                         
                         <span class="card-title">learn r for ggplot theory</span>
                     </div>
@@ -855,7 +870,7 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zy1998ld/zy1998ld.github.io.git/tags/code/">
+                    <a href="/tags/code/">
                         <span class="chip bg-color">code</span>
                     </a>
                     
@@ -872,21 +887,21 @@
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/zy1998ld/zy1998ld.github.io.git/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/zy1998ld/zy1998ld.github.io.git/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/zy1998ld/zy1998ld.github.io.git/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/zy1998ld/zy1998ld.github.io.git/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -907,7 +922,7 @@
 </div>
 
 
-<script src="/zy1998ld/zy1998ld.github.io.git/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -988,11 +1003,18 @@
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/zy1998ld/zy1998ld.github.io.git/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1042,7 +1064,7 @@
     </div>
 </div>
 
-<script src="/zy1998ld/zy1998ld.github.io.git/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1053,10 +1075,13 @@
                 <span id="year">2019-2023</span>
             
             <span id="year">2019</span>
-            <a href="/zy1998ld/zy1998ld.github.io.git/about" target="_blank">Zy</a>
+            <a href="/about" target="_blank">Zy</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">991</span>&nbsp;字
             
             
             
@@ -1080,13 +1105,13 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/zy1998ld/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:1794148812@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1094,9 +1119,13 @@
 
 
 
+    <a href="https://twitter.com/DreamDay1998" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/DreamDay1998" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1794148812" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1794148812" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1105,10 +1134,6 @@
 
 
 
-
-    <a href="/zy1998ld/zy1998ld.github.io.git/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1217,7 +1242,7 @@ $(function () {
         });
     };
 
-    searchFunc('/zy1998ld/zy1998ld.github.io.git/search.xml', 'searchInput', 'searchResult');
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1229,12 +1254,12 @@ $(function () {
 </div>
 
 
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/materialize/materialize.min.js"></script>
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/aos/aos.js"></script>
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/zy1998ld/zy1998ld.github.io.git/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1255,10 +1280,10 @@ $(function () {
 </script>
 
     
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="/zy1998ld/zy1998ld.github.io.git/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1273,9 +1298,22 @@ $(function () {
     
 
     
-    <script src="/zy1998ld/zy1998ld.github.io.git/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/zy1998ld/zy1998ld.github.io.git/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/zy1998ld/zy1998ld.github.io.git/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 
 </html>
