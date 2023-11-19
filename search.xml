@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Learn SAS</title>
+      <link href="/2023/10/05/sas/"/>
+      <url>/2023/10/05/sas/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SAS基础"><a href="#SAS基础" class="headerlink" title="SAS基础"></a>SAS基础</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Learn CDISC</title>
+      <link href="/2023/01/05/cdisc/"/>
+      <url>/2023/01/05/cdisc/</url>
+      
+        <content type="html"><![CDATA[<h2 id="CDISC"><a href="#CDISC" class="headerlink" title="CDISC"></a>CDISC</h2><h4 id="四期临床实验"><a href="#四期临床实验" class="headerlink" title="四期临床实验"></a>四期临床实验</h4><ol><li>考虑药物的安全性和可耐受剂量，招募健康人群，主要进行药代动力学分析，70%进入下期</li><li>考虑药物安全性和有效性，招募几十人进行临床试验，33%进入下一期</li><li>考虑药物安全性和有效性，比起2期人数更多，70%进入下一期</li><li>药物进入市场后的分析，主要是考虑到临床实验不能涵盖特殊人群，70-90%不会召回</li></ol><h4 id="临床试验的参与者："><a href="#临床试验的参与者：" class="headerlink" title="临床试验的参与者："></a>临床试验的参与者：</h4><ol><li>sponsor: 制药公司，需要提供预临床实验的安全性和有效性等，需要提供数据库</li><li>CRO (contract research organization)：负责数据处理，SAP的实施，数据传输</li><li>site: 医院保健机构，负责患者的招入随访</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>learn r for ggplot theory</title>
       <link href="/2021/01/05/learnr4ds/"/>
       <url>/2021/01/05/learnr4ds/</url>
